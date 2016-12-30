@@ -22,6 +22,9 @@ trait MetadataCollector
 
     public function getName()
     {
+        if (!($this->getMetadata()->getAltName()===null)){
+            return $this->getMetadata()->getAltName();
+        }
         return $this->getMetadata()->getName();
     }
 

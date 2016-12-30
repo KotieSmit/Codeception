@@ -18,7 +18,7 @@ class JUnit extends \PHPUnit_Util_Log_JUnit
         $this->currentTestCase = $this->document->createElement('testcase');
 
         $isStrict = Configuration::config()['settings']['strict_xml'];
-
+        $fields = $test->getReportFields();
         foreach ($test->getReportFields() as $attr => $value) {
             if ($isStrict and !in_array($attr, $this->strictAttributes)) {
                 continue;

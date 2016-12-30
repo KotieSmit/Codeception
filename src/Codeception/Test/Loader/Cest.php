@@ -82,7 +82,7 @@ class Cest implements LoaderInterface
                                 "Make sure this is a valid JSON (Hint: \"-char for strings) or a single-line annotation in Doctrine-style"
                             );
                         }
-                        $test = new CestFormat($unit, $method, $file);
+                        $test = new CestFormat($unit, $method, $file, $example[0]);
                         $test->getMetadata()->setCurrent(['example' => $example]);
                         $dataProvider->addTest($test);
                     }

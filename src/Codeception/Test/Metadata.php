@@ -8,6 +8,7 @@ class Metadata
     protected $name;
     protected $filename;
     protected $feature;
+    protected $altName;
 
     protected $env = [];
     protected $groups = [];
@@ -112,11 +113,27 @@ class Metadata
     }
 
     /**
+     * @return mixed
+     */
+    public function getAltName()
+    {
+        return $this->altName;
+    }
+
+    /**
      * @param mixed $name
      */
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param mixed $altName
+     */
+    public function setAltName($altName)
+    {
+        $this->altName = $altName;
     }
 
     /**

@@ -26,15 +26,18 @@ class Cest extends Test implements
     protected $parser;
     protected $testClassInstance;
     protected $testMethod;
+    protected $altName;
 
-    public function __construct($testClass, $methodName, $fileName)
+    public function __construct($testClass, $methodName, $fileName, $altName=null)
     {
         $metadata = new Metadata();
         $metadata->setName($methodName);
+        $metadata->setAltName($altName);
         $metadata->setFilename($fileName);
         $this->setMetadata($metadata);
         $this->testClassInstance = $testClass;
         $this->testMethod = $methodName;
+        $this->altName = $altName;
         $this->createScenario();
         $this->parser = new Parser($this->getScenario(), $this->getMetadata());
     }
@@ -168,6 +171,10 @@ class Cest extends Test implements
         return $this->testMethod;
     }
 
+    public function getAltName(){
+        return $this->altName;
+    }
+
     /**
      * @return array
      */
@@ -176,6 +183,7 @@ class Cest extends Test implements
         return [
             'file'    => $this->getFileName(),
             'name'    => $this->getTestMethod(),
+            'altName' => $this->getAltName(),
             'class'   => get_class($this->getTestClass()),
             'feature' => $this->getFeature()
         ];

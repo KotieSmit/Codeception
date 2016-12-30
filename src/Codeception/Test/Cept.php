@@ -18,11 +18,12 @@ class Cept extends Test implements Interfaces\Plain, Interfaces\ScenarioDriven, 
      */
     protected $parser;
 
-    public function __construct($name, $file)
+    public function __construct($name, $file, $altName=null)
     {
         $metadata = new Metadata();
         $metadata->setName($name);
         $metadata->setFilename($file);
+        $metadata->setAltName($altName);
         $this->setMetadata($metadata);
         $this->createScenario();
         $this->parser = new Parser($this->getScenario(), $this->getMetadata());

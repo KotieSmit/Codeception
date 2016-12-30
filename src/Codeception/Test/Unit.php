@@ -99,7 +99,8 @@ class Unit extends \PHPUnit_Framework_TestCase implements
         return [
             'name'    => $this->getName(),
             'class'   => get_class($this),
-            'file'    => $this->getMetadata()->getFilename()
+            'file'    => $this->getMetadata()->getFilename(),
+            'altName' => $this->getAltName(),
         ];
     }
 
